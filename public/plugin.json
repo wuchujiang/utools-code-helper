@@ -24,10 +24,7 @@
     {
       "code": "uuid",
       "explain": "随机唯一值",
-      "cmds": [
-        "UUID",
-        "GUID"
-      ]
+      "cmds": ["UUID", "GUID"]
     },
     {
       "code": "hash",
@@ -87,9 +84,7 @@
     {
       "code": "urlencode",
       "explain": "URL 编码",
-      "cmds": [
-        "URL encode(编码)"
-      ]
+      "cmds": ["URL encode(编码)"]
     },
     {
       "code": "urldecode",
@@ -100,6 +95,18 @@
           "type": "regex",
           "match": "/%[A-Fa-f0-9][A-Fa-f0-9]/",
           "label": "URL 解码"
+        }
+      ]
+    },
+    {
+      "code": "urlparams",
+      "explain": "URL 参数解析",
+      "cmds": [
+        "URL 参数解析",
+        {
+          "type": "regex",
+          "match": "/\\/[A-Za-z0-9-_]+/",
+          "label": "URL 参数解析"
         }
       ]
     },
@@ -137,6 +144,18 @@
           "type": "regex",
           "match": "/^&(quot|amp|lt|gt|nbsp);$/i",
           "label": "HTML 转义字符"
+        }
+      ]
+    },
+    {
+      "code": "jwt",
+      "explain": "jwt 解析",
+      "cmds": [
+        "jwt 解析",
+        {
+          "type": "regex",
+          "match": "/^[0-9a-zA-Z-_]+\\.[0-9a-zA-Z-_]+\\.[0-9a-zA-Z-_]+$/",
+          "label": "jwt 解析"
         }
       ]
     }

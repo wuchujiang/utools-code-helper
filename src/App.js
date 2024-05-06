@@ -10,6 +10,8 @@ import UrlDecode from './UrlDecode'
 import Unicode from './Unicode'
 import Hex from './Hex'
 import HtmlEscape from './HtmlEscape'
+import JwtDecode from './JwtDecode'
+import UrlParams from './UrlParams'
 
 window.platform = {
   isMacOS: window.utools.isMacOS(),
@@ -53,7 +55,7 @@ export default class App extends React.Component {
     copyIndex: null
   }
 
-  componentDidMount () {
+  componentDidMount() {
     window.utools.onPluginEnter(enter => {
       this.setState({ enter })
     })
@@ -84,11 +86,13 @@ export default class App extends React.Component {
       case 'unicode': return <Unicode {...enter} copyIndex={this.state.copyIndex} />
       case 'hex': return <Hex {...enter} copyIndex={this.state.copyIndex} />
       case 'htmlescape': return <HtmlEscape {...enter} copyIndex={this.state.copyIndex} />
+      case 'jwt': return <JwtDecode {...enter} copyIndex={this.state.copyIndex} />
+      case 'urlparams': return <UrlParams {...enter} copyIndex={this.state.copyIndex} />
       default: return false
     }
   }
 
-  render () {
+  render() {
     const { enter, theme } = this.state
     if (!enter) return false
     return (

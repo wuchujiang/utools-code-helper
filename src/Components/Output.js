@@ -10,7 +10,7 @@ export default class Output extends React.Component {
     window.utools.copyText(String(this.props.value))
   }
 
-  shouldComponentUpdate (nextProps) {
+  shouldComponentUpdate(nextProps) {
     if (nextProps.copyIndex !== this.props.copyIndex) {
       if (nextProps.copyIndex[0] === this.props.index && this.props.value) {
         this.handleCopy()
@@ -20,27 +20,32 @@ export default class Output extends React.Component {
     return true
   }
 
-  render () {
+  render() {
     const { label, value, index } = this.props
     return (
-      <Paper className='components-output'>
-        {label && <div className='components-output-label'>{label}</div>}
-        <div className='components-output-value'>
-          {value && value.length > 10000 ? value.substr(0, 10000) + '......' : value}
-        </div>
-        {value && (
-          <div className='components-output-handle'>
-            {
-              index < 10
-                ? <Tooltip title='复制' placement='left'>
+      <>
+        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 10, alignItems: 'center' }}>
+          <div className='components-output-label'>{label || '结果'}</div>
+          {value && (
+            <div className='components-output-handle'>
+              {
+                index < 10
+                  ? <Tooltip title='复制' placement='left'>
                     <Button endIcon={<ContentCopyIcon />} onClick={this.handleCopy} color='primary' size='small'>
                       {(window.platform.isMacOS ? '⌘+' : 'Alt+') + index}
                     </Button>
                   </Tooltip>
-                : <Button onClick={this.handleCopy} color='primary' size='small'>复制</Button>
-            }
-          </div>)}
-      </Paper>
+                  : <Button onClick={this.handleCopy} color='primary' size='small'>复制</Button>
+              }
+            </div>)}
+        </div>
+        <Paper className='components-output'>
+          <pre className='components-output-value'>
+            {value && value.length > 10000 ? value.substr(0, 10000) + '......' : value}
+          </pre>
+
+        </Paper>
+      </>
     )
   }
 }
