@@ -12,6 +12,7 @@ import Hex from './Hex'
 import HtmlEscape from './HtmlEscape'
 import JwtDecode from './JwtDecode'
 import UrlParams from './UrlParams'
+import IpQuery from './IpQuery'
 
 window.platform = {
   isMacOS: window.utools.isMacOS(),
@@ -88,6 +89,7 @@ export default class App extends React.Component {
       case 'htmlescape': return <HtmlEscape {...enter} copyIndex={this.state.copyIndex} />
       case 'jwt': return <JwtDecode {...enter} copyIndex={this.state.copyIndex} />
       case 'urlparams': return <UrlParams {...enter} copyIndex={this.state.copyIndex} />
+      case 'ip': return <IpQuery {...enter} copyIndex={this.state.copyIndex} />
       default: return false
     }
   }
