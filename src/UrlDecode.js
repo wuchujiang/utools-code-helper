@@ -2,13 +2,14 @@ import React from 'react'
 import TextField from '@mui/material/TextField'
 import Output from './Components/Output'
 
+
 export default class UrlDecode extends React.Component {
   state = {
     input: '',
     result: ''
   }
 
-  componentDidMount () {
+  componentDidMount() {
     if (this.props.type === 'regex') {
       const input = this.props.payload
       this.setState({ input })
@@ -30,7 +31,7 @@ export default class UrlDecode extends React.Component {
     }
   }
 
-  render () {
+  render() {
     const { input, result } = this.state
     return (
       <div>
@@ -39,7 +40,7 @@ export default class UrlDecode extends React.Component {
           placeholder='字符串'
           autoFocus
           multiline
-          rows={12}
+          rows={6}
           variant='filled'
           fullWidth
           onChange={this.handleInputChange}

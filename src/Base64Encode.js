@@ -8,7 +8,7 @@ export default class base64Encode extends React.Component {
     isWebImg: false
   }
 
-  componentDidMount () {
+  componentDidMount() {
     if (this.props.type === 'files') {
       this.dropInputRef.inputFile(this.props.payload[0])
     } else if (this.props.type === 'img') {
@@ -33,7 +33,7 @@ export default class base64Encode extends React.Component {
     this.dropInputRef.focus()
   }
 
-  render () {
+  render() {
     const { result, isWebImg } = this.state
     return (
       <div className='base64encode-page'>
@@ -42,7 +42,7 @@ export default class base64Encode extends React.Component {
             ref={c => { this.dropInputRef = c }}
             fileMatch={/.(jpg|png|jpeg|gif)/i}
             placeholder='输入字符串、粘贴图片、拖拽图片文件到这里'
-            rows={12}
+            rows={6}
             onChange={this.handleInputChange}
           />
           {

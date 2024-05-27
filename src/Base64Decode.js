@@ -20,7 +20,7 @@ export default class Base64Decode extends React.Component {
     return /^data:image\/(jpg|jpeg|gif|png);base64,(?:[A-Za-z0-9+/][A-Za-z0-9+/][A-Za-z0-9+/][A-Za-z0-9+/])+(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(str)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     if (this.props.type === 'regex') {
       if (this.isBase64String(this.props.payload)) {
         this.setState({ input: this.props.payload, result: window.services.base64Decode(this.props.payload) })
@@ -54,7 +54,7 @@ export default class Base64Decode extends React.Component {
     window.services.imageBase64ToFile(this.state.input)
   }
 
-  render () {
+  render() {
     const { result, input, isBase64Img } = this.state
     return (
       <div className='base64decode-page'>
@@ -63,7 +63,7 @@ export default class Base64Decode extends React.Component {
           placeholder='base64 编码字符串'
           autoFocus
           multiline
-          rows={12}
+          rows={6}
           variant='filled'
           fullWidth
           onChange={this.handleInputChange}
@@ -72,10 +72,10 @@ export default class Base64Decode extends React.Component {
         {
           isBase64Img
             ? <Paper className='base64decode-page-img'>
-                <Tooltip title='点击保存为文件' placement='top'>
-                  <img alt='' draggable='false' onClick={this.handleSaveImg} src={input} />
-                </Tooltip>
-              </Paper>
+              <Tooltip title='点击保存为文件' placement='top'>
+                <img alt='' draggable='false' onClick={this.handleSaveImg} src={input} />
+              </Tooltip>
+            </Paper>
             : <Output label='结果' value={result} copyIndex={this.props.copyIndex} index={1} />
         }
       </div>

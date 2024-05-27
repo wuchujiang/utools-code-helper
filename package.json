@@ -1,7 +1,8 @@
 {
   "scripts": {
     "dev": "webpack -w",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "server": "webpack-dev-server"
   },
   "dependencies": {
     "@emotion/react": "^11.10.8",
@@ -10,6 +11,7 @@
     "@mui/material": "^5.14.18",
     "jwt-decode": "^4.0.0",
     "react": "^18.2.0",
+    "react-ace": "^11.0.1",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {

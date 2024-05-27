@@ -56,7 +56,7 @@ export default class UrlDecode extends React.Component {
           onChange={this.handleInputChange}
           value={input}
         />
-        <Output label='结果' value={result} copyIndex={this.props.copyIndex} index={1} />
+        <Output mode="json" label='结果' value={result} copyIndex={this.props.copyIndex} index={1} />
       </div>
     )
   }

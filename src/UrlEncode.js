@@ -12,7 +12,7 @@ export default class UrlEncode extends React.Component {
     this.setState({ input })
   }
 
-  render () {
+  render() {
     const { input } = this.state
     return (
       <div>
@@ -21,7 +21,7 @@ export default class UrlEncode extends React.Component {
           placeholder='字符串'
           autoFocus
           multiline
-          rows={12}
+          rows={6}
           variant='filled'
           fullWidth
           onChange={this.handleInputChange}
